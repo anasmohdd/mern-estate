@@ -14,12 +14,12 @@ const Search = () => {
     sort: "created_at",
     order: "desc",
   });
-  console.log(sidebardata);
+  // console.log(sidebardata);
 
   const [loading, setLoading] = useState(false);
   const [listings, setListings] = useState([]);
   const [showMore, setShowMore] = useState(false);
-  console.log(listings);
+  // console.log(listings);
 
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search);
