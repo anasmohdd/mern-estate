@@ -13,10 +13,12 @@ const Search = () => {
     sort: "created_at",
     order: "desc",
   });
+  console.log(sidebardata);
 
   const [loading, setLoading] = useState(false);
   const [listings, setListings] = useState([]);
   const [showMore, setShowMore] = useState(false);
+  console.log(listings);
 
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search);
@@ -102,6 +104,7 @@ const Search = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     const urlParams = new URLSearchParams();
     urlParams.set("searchTerm", sidebardata.searchTerm);
     urlParams.set("type", sidebardata.type);
@@ -111,6 +114,7 @@ const Search = () => {
     urlParams.set("sort", sidebardata.sort);
     urlParams.set("order", sidebardata.order);
     const searchQuery = urlParams.toString();
+
     navigate(`/search?${searchQuery}`);
   };
 
@@ -228,7 +232,7 @@ const Search = () => {
               className="border rounded-lg p-3"
             >
               <option value="regularPrice_desc">Price high to low</option>
-              <option value="regularPrice_asc">Price low to hight</option>
+              <option value="regularPrice_asc">Price low to high</option>
               <option value="createdAt_desc">Latest</option>
               <option value="createdAt_asc">Oldest</option>
             </select>
